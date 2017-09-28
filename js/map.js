@@ -4,7 +4,7 @@ var northWest = L.latLng(30.404, -97.815),
     bounds = L.latLngBounds(northWest, southEast);
 
 //create map - zoom to var bounds
-var map = L.map('map', { dragging: !L.Browser.mobile });
+var map = L.map('map', { dragging: !L.Browser.mobile; scrollWheelZoom: false });
 map.fitBounds(bounds);
 
 //load osm basemap tiles
