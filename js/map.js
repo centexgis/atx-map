@@ -17,7 +17,7 @@ L.easyButton('fa-globe fa-lg', function(){
     map.fitBounds(bounds)
 }).addTo(map);
 
-//load adelberts marker location and popup info
+//load centexgis marker location and popup info
 var marker = L.marker([30.27384, -97.74058], {title: "Austin, TX"});
 
 var markerContent = "<strong>CENTEXGIS</strong><br>" + "Austin, TX";
