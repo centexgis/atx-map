@@ -18,8 +18,8 @@ L.easyButton('fa-globe fa-lg', function(){
 }).addTo(map);
 
 //load centexgis marker location and popup info
-var marker = L.marker([30.27384, -97.74058], {title: "Austin, TX"});
+var marker = L.marker([30.27384, -97.74058]);
 
-var markerContent = "<strong>CENTEXGIS</strong><br>" + "Austin, TX";
+var markerContent = "<strong>CenTex GIS</strong><br>" + "<i>in Austin, TX</i>";
 
-marker.bindPopup(markerContent).addTo(map);
+marker.addTo(map).bindPopup(markerContent, {autoClose:false}).openPopup();
