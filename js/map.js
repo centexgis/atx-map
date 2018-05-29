@@ -20,7 +20,7 @@ L.easyButton('fa-globe fa-lg', function(){
 //load centexgis marker location and popup info
 var marker = L.marker([30.27384, -97.74058]);
 var markerContent = "<strong>CenTex GIS</strong><br>" + "<i>in Austin, TX</i>";
-marker.addTo(map).bindPopup(markerContent, {autoClose:false}).openPopup();
+marker.addTo(map).bindPopup(markerContent, {closeOnClick: false, autoClose:false}).openPopup();
 
 //geocode last meeting location from address
 var request = "https://nominatim.openstreetmap.org/search?q=10431+Morado+Circle,+Austin&format=json&polygon=1&addressdetails=1";	
@@ -29,17 +29,10 @@ $(document).ready(function(){
         url: request,
         dataType: 'json',
         success: function(response) {
-            //Add last meeting popup to map
-            var popupLocation = new L.LatLng(response[0].lat, response[0].lon);
-            var popupContent = "<span style='color:steelblue;'>Last Meeting:</span><br><span style='color:steelblue;'>Freese & Nichols - 4/3/18</span>";
-            var popup = new L.Popup();
-            popup.setLatLng(popupLocation);
-            popup.setContent(popupContent);
-            map.addLayer(popup);
-
             //Add last meeting marker to map
             var marker = L.marker([response[0].lat, response[0].lon]);
-            map.addLayer(marker);
+            var markerContent = "<span style='color:steelblue;'>Last Meeting:</span><br><span style='color:steelblue;'>Freese & Nichols - 4/3/18</span>";
+            marker.addTo(map).bindPopup(markerContent, {closeOnClick: false, autoClose:false}).openPopup();
         },
         error: function(xhr, st, et) {
         console.warn(et);
